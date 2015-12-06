@@ -1,0 +1,101 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="beer-view">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      .white {
+        --paper-card-header-color: pink;
+        --paper-card-header-image: {
+          width: auto;
+          height: 150px;
+        }
+      }
+
+      paper-card {
+        margin-bottom: 16px;
+      }
+    </style>
+    <paper-card class="white" image="{{image}}">
+      <div class="card-content">
+        <h2>{{name}}</h2>
+        <i>{{brewery}}</i> - {{short}}
+      </div>
+      <div class="card-actions">
+        <paper-icon-button
+            icon="expand-more"
+            title="more info"
+            on-tap="_toggleMoreInfo"
+            style="float: right;">
+        </paper-icon-button>
+        <iron-collapse id="{{elementId}}">
+          {{description}}
+        </iron-collapse>
+      </div>
+    </paper-card>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'beer-view',
+
+      properties: {
+        name: {
+          type: String,
+          value: ''
+        },
+        short: {
+          type: String,
+          value: ''
+        },
+        description: {
+          type: String,
+          value: ''
+        },
+        brewery: {
+          type: String,
+          value: ''
+        },
+        price: {
+          type: Number,
+          value: 0
+        },
+        image: {
+          type: String,
+          value: ''
+        },
+        elementId: {
+          type: String,
+          computed: '_computeElementId(name)'
+        }
+      },
+
+      _computeElementId: function(name) {
+        return name.split(' ').join('-');
+      },
+
+      _toggleMoreInfo: function(e) {
+        var moreInfo = document.getElementById(this.elementId);
+        var iconButton = Polymer.dom(e).localTarget;
+        iconButton.icon = moreInfo.opened ? 'expand-more'
+                                          : 'expand-less';
+        moreInfo.toggle();
+      }
+    });
+  })();
+  </script>
+</dom-module>
