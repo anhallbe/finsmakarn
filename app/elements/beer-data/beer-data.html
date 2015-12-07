@@ -1,0 +1,53 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="beer-data">
+  <template>
+  </template>
+  <script>
+(function() {
+  'use strict';
+
+  class BeerData {
+    beforeRegister() {
+      this.is = 'beer-data';
+
+      this.properties = {
+        beers: {
+          notify: true,
+          value: function() {
+            return [
+              {
+                name: 'Sleepy Bulldog Pale Ale',
+                brewery: 'Gottlands Bryggeri',
+                short: 'A good beer',
+                description: `Benämningen Pale Ale kännetecknar en ljusare typ av Ale som bryggs på ljusare malt. En ölsort med karaktäristisk humle som har fruktiga toner och en markerad beska. Namnet härrör från en Bulldog som hette Krut. Med sina dryga 40 kilo muskler, ingav Krut välförtjänt respekt. Han var en sann glädjespridare precis som denna öl.`,
+                image: `http://1.bp.blogspot.com/-tPbk73_TAgc/TslQ1GyOzlI/AAAAAAAAALI/cWaXKtTPKKU/s1600/IMG_4516.JPG`
+              },
+              {
+                name: 'Golden Ale',
+                brewery: 'Oppigårds',
+                short: 'A good beer',
+                description: `Oppigårds Golden Ale är det första öl vi bryggde. Året var 2004. Under de första åren justerade vi receptet flera gånger. Sedan 2006 finns flaskorna på Systembolaget runt om i Sverige. Idag är det en av de populäraste svenskbrygda alen på Systembolaget. Oppigårds Golden Ale är ett utmärkt puböl men har också blivit en populär matöl. Golden Ale karktäriseras av en ren maltsmak och medelstor kropp med medelstor beska och utpräglad humlearom från Goldings och Cascade. Denna öl säljs i Systembolagets ordinarie sortiment.`,
+                image: `http://4.bp.blogspot.com/-b0egjeTPPRk/TV2XG0FxBLI/AAAAAAAAADQ/FgQA9sFK-ww/s1600/IMG_1121.JPG`
+              }
+            ];
+          }
+        }
+      };
+    }
+  }
+
+  Polymer(BeerData);
+})();
+  </script>
+</dom-module>

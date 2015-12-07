@@ -109,7 +109,8 @@ gulp.task('lint', function() {
       'app/scripts/**/*.js',
       'app/elements/**/*.js',
       'app/elements/**/*.html',
-      'gulpfile.js'
+      'gulpfile.js',
+      '!app/elements/beer-data/beer-data.html'  //TODO: Temporary
     ])
     .pipe(reload({
       stream: true,

@@ -124,18 +124,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-              <beer-view name="Sleepy Bulldog Pale Ale"
-                        brewery="Gottlands Bryggeri"
-                        short="A good beer"
-                        description="Benämningen Pale Ale kännetecknar en ljusare typ av Ale som bryggs på ljusare malt. En ölsort med karaktäristisk humle som har fruktiga toner och en markerad beska. Namnet härrör från en Bulldog som hette Krut. Med sina dryga 40 kilo muskler, ingav Krut välförtjänt respekt. Han var en sann glädjespridare precis som denna öl."
-                        image="http://1.bp.blogspot.com/-tPbk73_TAgc/TslQ1GyOzlI/AAAAAAAAALI/cWaXKtTPKKU/s1600/IMG_4516.JPG">
-              </beer-view>
-              <beer-view name="Golden Ale"
-                        brewery="Oppigårds"
-                        short="A good beer"
-                        description="A longer description of just how good this beer is and so on."
-                        image="http://4.bp.blogspot.com/-b0egjeTPPRk/TV2XG0FxBLI/AAAAAAAAADQ/FgQA9sFK-ww/s1600/IMG_1121.JPG">
-              </beer-view>
+              <beer-data beers="{{beers}}"></beer-data>
+              <beer-list-view beers={{beers}}></beer-list-view>
             </section>
 
             <section data-route="users">
