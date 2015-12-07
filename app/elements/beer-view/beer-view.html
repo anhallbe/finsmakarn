@@ -47,13 +47,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </paper-card>
   </template>
   <script>
-  (function() {
-    'use strict';
+(function() {
+  'use strict';
 
-    Polymer({
-      is: 'beer-view',
+  class BeerView {
+    beforeRegister() {
+      this.is = 'beer-view';
 
-      properties: {
+      this.properties = {
         name: {
           type: String,
           value: ''
@@ -82,20 +83,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type: String,
           computed: '_computeElementId(name)'
         }
-      },
+      };
+    }
 
-      _computeElementId: function(name) {
-        return name.split(' ').join('-');
-      },
+    _computeElementId(name) {
+      return name.split(' ').join('-');
+    }
 
-      _toggleMoreInfo: function(e) {
-        var moreInfo = document.getElementById(this.elementId);
-        var iconButton = Polymer.dom(e).localTarget;
-        iconButton.icon = moreInfo.opened ? 'expand-more'
-                                          : 'expand-less';
-        moreInfo.toggle();
-      }
-    });
-  })();
+    _toggleMoreInfo(e) {
+      var moreInfo = document.getElementById(this.elementId);
+      var iconButton = Polymer.dom(e).localTarget;
+      iconButton.icon = moreInfo.opened ? 'expand-more'
+                                        : 'expand-less';
+      moreInfo.toggle();
+    }
+
+    ready() {}
+    attached() {}
+    detached() {}
+    attributeChanged() {}
+  }
+
+  Polymer(BeerView);
+})();
   </script>
 </dom-module>

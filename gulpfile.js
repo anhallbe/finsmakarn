@@ -170,7 +170,9 @@ gulp.task('copy', function() {
 gulp.task('js', function() {
   return gulp.src(['app/**/*.{js,html}'])
     .pipe($.sourcemaps.init())
-    .pipe($.if('*.html', $.crisper()))
+    .pipe($.if('*.html', $.crisper({
+      scriptInHead: false
+    })))
     .pipe($.if('*.js', $.babel({
       presets: ['es2015']
     })))
